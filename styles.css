@@ -3,20 +3,19 @@
     --vpad: 4rem;
     --hpad: 3rem;
     --title-content-gap: 2rem;
-    --nav-footer-bg: rebeccapurple;
-    --bg1: white;
-    --bg2: gray;
-    --bg1text: black;
+    --nav-footer-bg: rgb(22,48,60);
+    --bg1: rgb(22,48,60);
+    --bg2: rgb(219,94,85);
+    --bg1text: white;
     --bg2text: white;
-    --accent1: rebeccapurple;
-    --accent1lighter: darkorchid;
+    --accent1: rgb(219,94,85);
     --debug: rgb(185, 185, 185);
     --font-size: 1rem;
 }
 .loading {
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color: var(--bg1);
     color: var(--accent1);
     position: fixed;
     top: 0;
@@ -35,8 +34,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'aquire';
-    font-size: calc(var(--font-size));
+    font-size: var(--font-size);
+    font-family: 'futura';
 }
 html {
     scroll-behavior: smooth;
@@ -51,6 +50,11 @@ a {
 }
 h1 {
     font-size: calc(var(--font-size) + 1rem);
+    font-family: 'aquire';
+}
+p {
+    font-family: 'futura';
+    font-size: calc(var(--font-size) + 0.2rem);
 }
 .row {
     display: flex;
@@ -81,6 +85,13 @@ section, .section {
     scale: 1.1;
     transition: all 0.3s ease;
 }
+.textbox {
+    gap: 1rem;
+}
+.textbox * {
+    text-align: left;
+    width: 100%;
+}
 
 /* NAV START */
 
@@ -91,7 +102,7 @@ nav {
     width: 100vw;
     height: var(--navheight);
     background-color: var(--nav-footer-bg);
-    color: var(--bg2text);
+    color: var(--bg1text);
     padding: 0px var(--hpad);
     z-index: 10;
 }
@@ -109,13 +120,13 @@ nav {
     background-color: white;
 }
 .menu-links a {
-    color: var(--bg2text);
+    color: var(--bg1text);
     height: var(--navheight);
     padding: 0px .5rem;
     transition: all 0.3s ease;
 }
 .menu-links a:hover {
-    background-color: var(--accent1lighter);
+    background-color: var(--accent1);
     transition: all 0.3s ease;
 }
 .menu-icon {
@@ -203,11 +214,53 @@ nav {
 
 /* SECTIONS TEMPLATE END */
 
+/* PARALLAX SECTION START */
+
+.parallax {
+    position: relative;
+    height: calc(100vh - var(--navheight));
+    width: 100vw;
+    overflow: hidden;
+    background-image: url(parallax/demon_wood/parallax-demon-woods-bg.png);
+    background-size: cover;
+    background-position: center;
+    color: var(--bg2text);
+}
+.parallax-title {
+    z-index: 10;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+
+.parallax-layer:nth-child(1) {
+  background-image: url('/parallax/demon_wood/parallax-demon-woods-far-trees.png');
+}
+.parallax-layer:nth-child(2) {
+  background-image: url('parallax/demon_wood/parallax-demon-woods-mid-trees.png');
+}
+.parallax-layer:nth-child(3) {
+  background-image: url('/parallax/demon_wood/parallax-demon-woods-close-trees.png');
+}
+.parallax-layer {
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    pointer-events: none;
+}
+/* PARALLAX SECTION END */
+
 /* FOOTER START */
 
 footer {
     background-color: var(--nav-footer-bg);
-    color: var(--bg2text);
+    color: var(--bg1text);
     width: 100vw;
     height: fit-content;
     gap: var(--title-content-gap);
